@@ -1,0 +1,57 @@
+ /* style.css for To_Do_List */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+ }
+
+ body {
+   background-color: rgb(75, 75, 79);
+   user-select: none;
+ }
+
+ .cont {
+   width: 50%;
+   background-color: #1e1b1b;
+   color: aliceblue;
+   margin: 0 auto;
+   text-align: center;
+ }
+
+ .pad {
+   padding: 20px;
+ }
+
+ input {
+   border: 2px solid black;
+   padding: 5px;
+ }
+
+ input:focus {
+   outline: none;
+   border-color: transparent;
+   background-color: #000;
+   color: aliceblue;
+ }
+
+ #addInput {
+   width: 250px;
+ }
+
+ #addInput:hover,
+ #btn:hover {
+   color: #fff;
+   background-color: #000;
+   transition: all 0.6s;
+ }
+
+ table {
+   margin: 0 auto;
+ }
+
+ th {
+   padding: 0 30px;
+ }
+
+ #Err {
+   color: #bd0000;
+ }
