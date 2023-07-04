@@ -50,15 +50,38 @@ dis = (() => {
 })
 dis();
 
+let last = null;
+
+let undo = document.getElementById("btn_undo")
 remove = ((userId) => {
     let UseCon = JSON.parse(localStorage.getItem('user'));
-
+    BtnInput.style.display = "none";
+    document.getElementById("btn_undo").style.display = "inline-block";
     for (i in UseCon) {
         if (UseCon[i].userId == userId) {
-            console.log(UseCon[i].userId);
+            last = UseCon[i];
             UseCon.splice(i, 1);
         }
         localStorage.setItem('user', JSON.stringify(UseCon));
     }
-    dis();
+    alert("Your task delete successfully");
+    dis(); 
+    setTimeout(() => {
+        document.getElementById("btn_undo").style.display = "none";
+        BtnInput.style.display = "inline-block";
+    }, 3000);
+
 })
+
+undo.addEventListener('click', undo = (() => {
+    document.getElementById("btn_undo").style.display = "none";
+    BtnInput.style.display = "inline-block";
+    if (last !== null) {
+        let UseCon = JSON.parse(localStorage.getItem('user'));
+        UseCon.push(last);
+        localStorage.setItem('user', JSON.stringify(UseCon))
+        last = null;
+        alert("Your task undo successfully")
+        dis();
+    }
+}))
